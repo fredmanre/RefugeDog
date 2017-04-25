@@ -82,8 +82,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'refugioperro',
-        'USER': user_name,
-        'PASSWORD': password,
+        'USER': 'user_name',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': 3306,
     }

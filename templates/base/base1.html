@@ -1,0 +1,88 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+      {% block extrahead %}
+         <link rel="stylesheet" href="{% static 'vendors/bootstrap/css/bootstrap.css' %}">
+         <link rel="stylesheet" href="{% static 'resources/css/style.css' %}">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      {% endblock extrahead %}
+
+      <meta charset="utf-8">
+      <title>{% block title %}{% endblock title %}</title>
+   </head>
+
+   <body id="page-top">
+
+         {% block navbar %}
+         <nav class="navbar navbar-default navbar-fixed-top">
+            <!-- desplegable movil -->
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">toggle-navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+               </button>
+               <a href="#page-top" class="navbar-brand page-scroll">Adopcion de Mascotas</a>
+            </div>
+            <!-- final de la barra para movil -->
+            <!-- menu principal: links, formularios, enlaces y mas -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <ul class="nav navbar-nav navbar-right">
+                  <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caninos<span class="caret"></span></a>
+                     <ul class="dropdown-menu">
+                        <li><a href="{% url 'canino:listar_caninos' %}">Ver caninos</a></li>
+                        <li><a href="{% url 'canino:nuevo_canino' %}">Añadir canino</a></li>
+                     </ul>
+                  </li>
+                  <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Adopcion<span class="caret"></span></a>
+                     <ul class="dropdown-menu">
+                        <li><a href="{% url 'adopcion:listar' %}">Ver solicitudes</a></li>
+                        <li><a href="{% url 'adopcion:crear' %}">Añadir solicitud</a></li>
+                        <li><a href="#">Adoptantes</a></li>
+                     </ul>
+                  </li>
+                  <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mas<span class="caret"></span></a>
+                     <ul class="dropdown-menu">
+                        <li><a class="page-scroll" href="#portafolio">Portafolio</a></li>
+                        <li><a class="page-scroll" href="#services">Servicios</a></li>
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                     </ul>
+                  </li>
+                  <li><a class="page-scroll" href="#about">Acerca de&nbsp;</a></li>
+                  </ul>
+            </div>
+         </nav>
+         {% endblock navbar %}
+
+         {% block header %}
+            <header>
+               <div class="header-content">
+                  <h1 id="homeHeading">Adopta una mascota ahora!</h1>
+                  <hr>
+                  <h3>
+                     el 53% de los perros estan en situacion de calle y tu puedes ayudarlos. Ellos necesitan de tu apoyo para dejar de vivir
+                     en tal situacion, no compres mascotas aqui puedes adoptar uno. Lo mejor de todo, es gratis.
+                  </h3>
+                  <a href="#" class="page-scroll btn btn-default btn-xl sr-button">Comenzar</a>
+               </div>
+            </header>
+         {% endblock header %}
+
+         {% block content %}
+            <h2>Contenido principal</h2>
+         {% endblock content %}
+
+         <!--{% block footer %}
+            <h3>El footer</h3>
+         {% endblock footer %}-->
+
+
+
+      <script type="text/javascript" src="{% static 'vendors/bootstrap/js/bootstrap.js' %}"></script>
+   </body>
+</html>

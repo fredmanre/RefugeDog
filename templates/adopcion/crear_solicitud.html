@@ -1,0 +1,68 @@
+{% extends "base/base.html" %}
+
+{% block header %}
+   <div class="container">
+      <br>
+      <h1>Registro de Adoptantes y Solicitudes</h1>
+   </div>
+{% endblock header %}
+
+{% block content %}
+   <div class="container">
+      <form  method="post">
+         {% csrf_token %}
+         <div class="row">
+            <div class="col-md-7">
+               <div class="form-group">
+                  <label for="{{form2.nombre.label}}">{{form2.nombre.label}}</label>
+                  {{form2.nombre}}
+               </div>
+            </div>
+            <div class="col-md-7">
+               <div class="form-group">
+                  <label for="{{form2.apellidos.label}}">{{form2.apellidos.label}}</label>
+                  {{form2.apellidos}}
+               </div>
+            </div>
+            <div class="col-md-7">
+               <div class="form-group">
+                  <label for="{{form2.edad.label}}">{{form2.edad.label}}</label>
+                  {{form2.edad}}
+               </div>
+            </div>
+            <div class="col-md-7">
+               <div class="form-group">
+                  <label for="{{form2.telefono.label}}">{{form2.telefono.label}}</label>
+                  {{form2.telefono}}
+               </div>
+            </div>
+            <div class="col-md-7">
+               <div class="form-group">
+                  <label for="{{form2.email.label}}">{{form2.email.label}}</label>
+                  {{form2.email}}
+               </div>
+            </div>
+            <div class="col-md-7">
+               <div class="form-group">
+                  <label for="{{form2.domicilio.label}}">{{form2.domicilio.label}}</label>
+                  {{form2.domicilio}}
+               </div>
+            </div>
+            <div class="col-md-7">
+               <div class="form-group">
+                  <label for="{{form.numero_caninos.label}}">{{form.numero_caninos.label}}</label>
+                  {{form.numero_caninos}}
+               </div>
+            </div>
+            <div class="col-md-7">
+               <div class="form-group">
+                  <label for="{{form.razon.label}}">{{form.razon.label}}</label>
+                  {{form.razon}}
+               </div>
+            </div>
+         </div>
+         <button class="btn btn-primary" type="submit">Registrar</button>
+         <button class="btn btn-default" type="reset">Limpiar</button>
+      </form>
+   </div>
+{% endblock content %}

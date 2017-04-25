@@ -1,0 +1,67 @@
+{% extends "base/base.html" %}
+
+{% block header %}
+      <div class="container">
+         <br>
+         <h1>Lista de mascotas</h1>
+      </div>
+{% endblock header %}
+
+{% block content %}
+
+   <div class="container">
+      <table class="table table-bordered">
+         <thead>
+            <tr>
+               <td>#</td>
+               <td>Nombre</td>
+               <td>Sexo</td>
+               <td>Raza</td>
+               <td>Edad(años)</td>
+               <td>Ingreso</td>
+               <td>Vacunas</td>
+               <td>Adoptante</td>
+               <td>Acciones</td>
+            </tr>
+         </thead>
+            <tbody>
+               {% if object_list %}
+                  {% for perro in object_list  %}
+                      <tr>
+                         <td>{{perro.id}}</td>
+                         <td>{{perro.nombre}}</td>
+                         <td>{{perro.sexo}}</td>
+                         <td>{{perro.raza}}</td>
+                         <td>{{perro.edad}}</td>
+                         <td>{{perro.rescate}}</td>
+                         <td>{{perro.vacuna.all}}</td>
+                         <td>{% if perro.adoptante %}
+                             {{perro.adoptante}}{% else %}No posee
+                         {% endif %}
+                         </td>
+                         <td>
+                            <a class="btn btn-warning" href="{% url 'canino:editar_canino' perro.id %}">Editar</a>
+                            <a class="btn btn-danger" href="{% url 'canino:eliminar_canino' perro.id %}">Eliminar</a>
+                         </td>
+                      </tr>
+                  {% endfor %}
+                  {% else %}
+                     <h2>No hay registros de mascotas</h2>
+               {% endif %}
+            </tbody>
+      </table>
+   </div>
+   <!-- paginador -->
+   <ul class="pager">
+        <li>
+           {% if page_obj.has_previous %}
+               <a href="?page={{page_obj.previus_page_number}}">Atras</a>
+           {% endif %}
+        </li>
+        <li>
+          {% if page_obj.has_next %}
+              <a href="?page={{page_obj.next_page_number}}">Siguiente</a>
+          {% endif %}
+        </li>
+    </ul>
+{% endblock content %}

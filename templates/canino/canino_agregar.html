@@ -1,0 +1,19 @@
+{% extends "base/base.html" %}
+
+{% block header %}
+   <div class="container">
+      <br>
+      <h1>Añadir un nuevo canino</h1>
+   </div>
+{% endblock header %}
+
+{% block content %}
+   <div class="container">
+      <form method="post">
+         {% csrf_token %}
+         {{form.as_p}}
+         <button class="btn btn-primary" type="submit">Guardar</button>
+         <button class="btn btn-default" type="reset">Limpiar</button>
+      </form>
+   </div>
+{% endblock content %}

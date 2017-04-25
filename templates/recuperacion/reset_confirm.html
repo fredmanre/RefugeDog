@@ -1,0 +1,46 @@
+{% extends "base/base1.html" %}
+
+{% block title %}reestablecer{% endblock title %}
+
+{% block navbar %}{% endblock navbar %}
+
+{% block header %}
+   <div class="container">
+      <h4>Reestablecer contraseña</h4>
+   </div>
+{% endblock header %}
+
+{% block content %}
+   <div class="container">
+      {% if validlink %}
+          <h5>Nueva contraseña</h5>
+          <form method="post">
+             {% csrf_token %}
+             <div class="row">
+                <div class="col-md-8">
+                  <div class="form-group">
+                     {{form.new_password1.errors}}
+                     <label for="id_new_password1">Nueva contraseña</label><!-- {{form.new_password1}} -->
+                     <input type="password" class="form-control" name="new_password1">
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <div class="form-group">
+                     {{form.new_password2.errors}}
+                     <label for="id_new_password2">Confirmar contraseña</label><!-- {{form.new_password2}} -->
+                     <input type="password" class="form-control" name="new_password2">
+                  </div>
+                  <div class="col-md-8">
+                     <div class="form-group">
+                        <button type="submit" name="button" class="btn btn-success">Cambiar</button>
+                     </div>
+                  </div>
+                </div>
+             </div>
+          </form>
+          {% else %}
+          <h2>Enlace invalido: <small>este enlace ya fue utilizado</small></h2>
+      {% endif %}
+
+   </div>
+{% endblock content %}

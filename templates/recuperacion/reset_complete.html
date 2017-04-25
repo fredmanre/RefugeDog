@@ -1,0 +1,18 @@
+{% extends "base/base1.html" %}
+
+{% block title %}complete{% endblock title %}
+
+{% block navbar %}{% endblock navbar %}
+
+{% block header %}
+   <div class="container">
+      <h3>Recuperacion exitosa</h3>
+   </div>
+{% endblock header %}
+
+{% block content %}
+   <div class="container">
+      <h4>su contraseña ha sido reestablecida exitosamente</h4>
+      <a href="{% url 'login' %}" class="btn btn-default">Ir a iniciar sesion</a>
+   </div>
+{% endblock content %}

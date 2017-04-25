@@ -1,0 +1,57 @@
+{% extends "base/base.html" %}
+
+{% block header %}
+   <br>
+   <div class="container">
+      <h2>Lista de Adoptantes y Solicitudes</h2>
+   </div>
+{% endblock header %}
+
+{% block content %}
+   <div class="container">
+      <div class="table-responsive">
+         <table class="table table-bordered table-hover">
+            <thead>
+               <th><h3>Listado</h3></th>
+                  <tr>
+                     <td><strong>N. Solicitud</strong></td>
+                     <td><strong>Apellidos</strong></td>
+                     <td><strong>Nombre(s)</strong></td>
+                     <td><strong>Email</strong></td>
+                     <td><strong>Telefono</strong></td>
+                     <td><strong>N. mascotas</strong></td>
+                     <td><strong>Acciones</strong></td>
+                  </tr>
+            </thead>
+            <tbody>
+               {% if object_list %}
+                   {% for item in object_list  %}
+                   <tr>
+                      <td>{{item.id}}</td>
+                      <td>{{item.persona.apellidos}}</td>
+                      <td>{{item.persona.nombre}}</td>
+                      <td>{{item.persona.email}}</td>
+                      <td>{% if item.persona.telefono %}{{item.persona.telefono}}{% else %}No posee{% endif %}</td>
+                      <td>{{item.numero_caninos}}</td>
+                      <td>
+                         <a class="btn btn-info" href="">Detalles</a>
+                         <a class="btn btn-warning" href="{% url 'adopcion:editar' item.id %}">Editar</a>
+                         <a class="btn btn-danger" href="{% url 'adopcion:eliminar' item.id %}">Eliminar</a>
+                      </td>
+                   </tr>
+                   {% endfor %}
+               {% else %}
+                  <tr>
+                     <td><h3>No hay registros</h3></td>
+                  </tr>
+               {% endif %}
+            </tbody>
+            <tfoot>
+               <tr>
+                  <small>Por PetsRefugios</small>
+               </tr>
+            </tfoot>
+         </table>
+      </div>
+   </div>
+{% endblock content %}

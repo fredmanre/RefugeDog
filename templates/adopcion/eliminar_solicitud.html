@@ -1,0 +1,19 @@
+{% extends "base/base.html" %}
+
+{% block header %}
+   <br>
+   <div class="container">
+      <h2> Solicitud numero: {{solicitud.id}}</h2>
+   </div>
+{% endblock header %}
+
+{% block content %}
+   <div class="container">
+      <h3 class="danger">Realmente desea eliminar la solicitud?</h3>
+      <form method="post">
+         {% csrf_token %}
+         <button class="btn btn-danger" type="submit">Si, eliminar</button>
+         <a href="{% url 'adopcion:listar' %}" class="btn btn-default">Cancelar</a>
+      </form>
+   </div>
+{% endblock content %}

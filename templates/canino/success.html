@@ -1,0 +1,9 @@
+{% extends "base/base.html" %}
+
+{% block header %}
+   <div class="container">
+      <br>
+      <h2>El registro se ha modificado y/o creado exitosamente...</h2>
+      <a class="btn btn-success" href="{% url  'canino:listar_caninos' %}">Volver a la lista de mascotas</a>
+   </div>
+{% endblock header %}

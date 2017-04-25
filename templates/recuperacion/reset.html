@@ -1,0 +1,39 @@
+{% extends "base/base.html" %}
+
+{% block title %}Recuperar contraseña{% endblock title %}
+
+{% block navbar %}{% endblock navbar %}
+
+{% block header %}
+   <br>
+   <div class="container">
+      <div class="row">
+         <div class="col-md-8">
+            <h3>Si has perdido u olvidado tu contraseña, por favor escribe tu correo electronico en el siguiente formulario</h3>
+         </div>
+      </div>
+   </div>
+{% endblock header %}
+
+{% block content %}
+   <div class="container">
+      <form  method="post">
+         {% csrf_token %}
+         <div class="row">
+            <div class="col-md-8">
+               <div class="form-group">
+                  <label for="id_email">Direccion de correo</label>
+                  {{form.email}}
+               </div>
+            </div>
+            <div class="col-md-8">
+               <div class="form-group">
+                  <button type="submit" class="btn btn-info" name="button">Enviar</button>
+                  <button type="reset" class="btn btn-default" name="button1">Cancelar</button>
+                  <a href="{% url 'login' %}" class="btn btn-success">Volver</a>
+               </div>
+            </div>
+         </div>
+      </form>
+   </div>
+{% endblock content %}

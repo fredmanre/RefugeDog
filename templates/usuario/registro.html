@@ -1,0 +1,61 @@
+{% extends "base/base.html" %}
+
+{% block header %}
+   <br>
+   <div class="container">
+      <h2>Registro de Usuarios</h2>
+   </div>
+{% endblock header %}
+
+{% block content %}
+   <div class="container">
+      <form method="post">
+         {% csrf_token %}
+         <div class="row">
+            <div class="col-md-8">
+               <div class="form-group">
+                  <label for="username">Nombre de usuario</label>
+                  <input type="text" class="form-control" placeholder="Introduzca un nombre de usuario" required name="username">
+               </div>
+            </div>
+            <div class="col-md-8">
+               <div class="form-group">
+                  <label for="first_name">Nombre</label>
+                  <input type="text" class="form-control" placeholder="Indique su nombre" name="first_name">
+               </div>
+            </div>
+            <div class="col-md-8">
+               <div class="form-group">
+                  <label for="last_name">Apellidos</label>
+                  <input type="text" class="form-control" placeholder=" Indique su apellido" name="last_name">
+               </div>
+            </div>
+            <div class="col-md-8">
+               <div class="form-group">
+                  <label for="email">Correo Electrónico</label>
+                  <input type="email" class="form-control" placeholder="Introduzca una direccion de correo" name="email" required>
+               </div>
+            </div>
+            <div class="col-md-8">
+               <div class="form-group">
+                  <label for="password1">Contraseña</label>
+                  <input type="password" class="form-control" placeholder="establezca una contraseña" name="password1" required>
+               </div>
+            </div>
+            <div class="col-md-8">
+               <div class="form-group">
+                  <label for="password2">Confirmar contraseña</label>
+                  <input type="password" class="form-control" placeholder="Confirme su contraseña" name="password2" required>
+               </div>
+            </div>
+            <div class="col-md-8">
+               <div class="form-group">
+                  <button type="submit" class="btn btn-success" name="button">Registrar</button>
+                  <button type="reset" name="button2" class="btn btn-warning">Reiniciar</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      </form>
+   </div>
+{% endblock content %}

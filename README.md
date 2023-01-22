@@ -1,2 +1,2 @@
-# RefugioPerro
-un sistema de refugio para caninos hecho con django
+# RefugeDog
+A refugedog system made with django
